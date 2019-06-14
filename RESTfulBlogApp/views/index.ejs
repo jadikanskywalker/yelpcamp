@@ -1,0 +1,34 @@
+<% include ./partials/header %>
+
+<%
+var monthNames = [
+  "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+];
+function pad(n) {
+    return n<10 ? '0'+n : n;
+}
+%>
+
+<div class="ui main container">
+    <h1>Blog Posts</h1>
+    <div class="ui items">
+    <% blogs.forEach(function(blog) { %>
+        <% var date = blog.created; %>
+        <div class="item">
+            <div class="image">
+                <img src="<%= blog.image %>">
+            </div>
+            <div class="content">
+                <a class="header"><%= blog.title %></a>
+                <div class="description">
+                    <p><%= blog.body %></p>
+                </div>
+                <div class="extra">
+                    <span><%= monthNames[date.getMonth()] + ' ' + pad(date.getDate()) + ', ' + date.getFullYear() %></span>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+    <div class="ui items">
+</div>
+<% include ./partials/footer %>

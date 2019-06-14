@@ -1,0 +1,19 @@
+body {
+    font-size: 115%;
+}
+
+.menu .header {
+    font-size: 120%;
+}
+
+.icon {
+    font-size: 1.5em;
+}
+
+.container.main {
+    margin-top: 7em;
+}
+
+.field label {
+    font-size: 107% !important;
+}
