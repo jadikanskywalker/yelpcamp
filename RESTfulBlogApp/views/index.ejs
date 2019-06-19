@@ -19,12 +19,13 @@ function pad(n) {
                 <img src="<%= blog.image %>">
             </div>
             <div class="content">
-                <a class="header"><%= blog.title %></a>
+                <a class="header" href="/blogs/<%= blog._id %>"><%= blog.title %></a>
                 <div class="description">
-                    <p><%= blog.body %></p>
+                    <p><%- blog.body.substring(0, 100) %> ...</p>
                 </div>
                 <div class="extra">
                     <span><%= monthNames[date.getMonth()] + ' ' + pad(date.getDate()) + ', ' + date.getFullYear() %></span>
+					<a href="/blogs/<%= blog._id %>"> Read More</a>
                 </div>
             </div>
         </div>

@@ -1,0 +1,32 @@
+<% include ./partials/header %>
+
+<%
+var monthNames = [
+  "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+];
+function pad(n) {
+    return n<10 ? '0'+n : n;
+}
+%>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= blog.title %></div>
+	<div class="ui top attached">
+		<div class="item">
+			<img class="ui centered rounded image" src="<%= blog.image %>">
+			<div class="content">
+				<span><%= monthNames[blog.created.getMonth()] + ' ' + pad(blog.created.getDate()) + ', ' + blog.created.getFullYear() %></span>
+			</div>
+			<div class="description">
+				<p><%- blog.body %></p>
+			</div>
+			<a class="ui orange basic button" href="/blogs/<%= blog._id %>/edit">Edit</a>
+			<form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST" id="delete">
+				<button class="ui red basic button">
+					Delete
+				</button>
+			</form>
+		</div>
+	</div>
+</div>
+<% include ./partials/footer %>

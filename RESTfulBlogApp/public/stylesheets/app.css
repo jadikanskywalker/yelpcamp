@@ -17,3 +17,7 @@ body {
 .field label {
     font-size: 107% !important;
 }
+
+#delete {
+	display: inline;
+}
