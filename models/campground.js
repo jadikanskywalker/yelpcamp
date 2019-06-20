@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Comment = require('./comment');
 
 var campgroundSchema = new mongoose.Schema({
     name: String,
@@ -7,7 +8,14 @@ var campgroundSchema = new mongoose.Schema({
 	comments: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Comment'
-	}]
+	}],
+	author: {
+		id: {
+			type: mongoose.Schema.Types.ObjectId,
+			model: 'Campground'
+		},
+		username: String
+	}
 });
 
 module.exports = mongoose.model('Campground', campgroundSchema);
